@@ -1,0 +1,84 @@
+/* styles */
+/* called by your view template */
+* {
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+body {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  min-height: 95%;
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  font-style: italic;
+  color: #373fff;
+}
+h2 {
+  font-size: 3rem;
+  font-style: italic;
+  color: red;
+  text-align: center;
+  flex: 1 0 auto;
+  vertical-align: middle;
+
+}
+.bold {
+  font-weight: bold;
+}
+p {
+  max-width: 600px;
+}
+main {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+input {
+  display: block;
+  padding: 5px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 16px;
+  min-width: 40px;
+  margin: 5px;
+}
+button {
+  font-size: 20px;
+  border-radius: 3px;
+  background-color: lightgrey;
+  border: 1px solid grey;
+  box-shadow: 2px 2px teal;
+  cursor: pointer;
+  padding: 10px;
+}
+button:hover {
+  background-color: yellow;
+}
+button:active {
+  box-shadow: none;
+}
+
+.inline {
+  display: inline;
+}
+.box {
+  align-items: center;
+  padding: 15px;
+  display: inline-block;
+  width: 100%;
+  border-radius: 3px;
+  font-size: 1rem;
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-between;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
