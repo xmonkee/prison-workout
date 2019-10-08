@@ -33,6 +33,7 @@ class Moves {
   }
 
   setSeed(seed) {
+    seed = parseInt(seed);
     seedInp.value = seed;
     this.rndGen = mulberry32(seed);
 
