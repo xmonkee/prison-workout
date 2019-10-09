@@ -19,10 +19,12 @@
   </head>
   <body>
     <main>
-      <h1>
-        You can do it!
-      </h1>
-      <div class="box" style="background-color: cyan">
+      <div class="topBar">
+        <div class="title">You can do it!</div>
+        <div class="grow"></div>
+        <div class="count" id="count"></div>
+      </div>
+      <div class="box" style="background-color:lightblue">
         <label>
           Seed
         </label>
@@ -31,12 +33,22 @@
           Set
         </button>
       </div>
-      <h3 id="count"></h3>
       <div class="container">
+        <div class="vidbg">
+          <video
+            style="height: 100%; position: absolute; top: -200; left: -100px; background-size: cover;"
+            alt="80s fitness GIF by Pastelae"
+            src="https://media1.giphy.com/media/26wkQkJja60v1J84w/giphy.mp4?cid=790b7611e001f8650869e84735198e970bb9b56fd1bd21a3&amp;rid=giphy.mp4"
+            poster="https://media1.giphy.com/media/26wkQkJja60v1J84w/giphy_s.gif?cid=790b7611e001f8650869e84735198e970bb9b56fd1bd21a3&amp;rid=giphy_s.gif"
+            autoplay=""
+            loop=""
+            playsinline=""
+          ></video>
+        </div>
         <div class="grow"></div>
-        <h2 id="current"></h2>
+        <div id="current"></div>
         <div class="grow"></div>
-        <div class="box">
+        <div class="box" style="background-color:lightpink">
           <button id="prev">
             Prev
           </button>
