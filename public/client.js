@@ -82,6 +82,27 @@ function inRange(a, min, max) {
   return Math.floor(a * (max - min + 1)) + min;
 }
 
+/* When the openFullscreen() function is executed, open the video in fullscreen.
+Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
+function openFullscreen(elem) {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) {
+    /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) {
+    /* Chrome, Safari and Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) {
+    /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+var mainContainer = document.getElementsByClassName("container")[0];
+var fullscreenbtn = document.getElementById("fullscreen");
+fullscreenbtn.onclick = () => openFullscreen(mainContainer);
+
 setInterval(function() {
   const randVidIdx = inRange(Math.random(), 0, videoSources.length - 1);
   bgVid.setAttribute("src", videoSources[randVidIdx]);

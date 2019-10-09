@@ -122,3 +122,17 @@ button:active {
   overflow: hidden;
   z-index: -1;
 }
+
+#fullscreen {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: black;
+  font-size: 2rem;
+  font-weight: bold;
+  background: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  line-height: 1.4rem;
+}
