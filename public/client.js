@@ -101,7 +101,11 @@ function openFullscreen(elem) {
 
 var mainContainer = document.getElementsByClassName("container")[0];
 var fullscreenbtn = document.getElementById("fullscreen");
-fullscreenbtn.onclick = () => openFullscreen(mainContainer);
+fullscreenbtn.onclick = () => {
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else openFullscreen(mainContainer);
+};
 
 document.addEventListener("fullscreenchange", function() {
   if (document.fullscreenElement) {
