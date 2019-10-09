@@ -103,6 +103,16 @@ var mainContainer = document.getElementsByClassName("container")[0];
 var fullscreenbtn = document.getElementById("fullscreen");
 fullscreenbtn.onclick = () => openFullscreen(mainContainer);
 
+document.addEventListener("fullscreenchange", function() {
+  if (document.fullscreenElement) {
+    bgVid.setAttribute("height", "auto");
+    bgVid.setAttribute("width", "100%");
+  } else {
+    bgVid.setAttribute("height", "100%");
+    bgVid.setAttribute("width", "auto");
+  }
+});
+
 setInterval(function() {
   const randVidIdx = inRange(Math.random(), 0, videoSources.length - 1);
   bgVid.setAttribute("src", videoSources[randVidIdx]);

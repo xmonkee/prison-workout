@@ -124,7 +124,6 @@ button:active {
 
 #bgVid {
   height: 100%;
-  width: 100%;
   background-size: cover;
   max-width: unset;
 }
