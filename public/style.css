@@ -2,6 +2,7 @@
 /* called by your view template */
 * {
   box-sizing: border-box;
+  max-width: 600px;
   margin: 0;
 }
 html {
@@ -52,7 +53,6 @@ main {
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
-  max-width: 600px;
 }
 
 input {
@@ -121,6 +121,13 @@ button:active {
   right: 0;
   overflow: hidden;
   z-index: -1;
+}
+
+#bgVid {
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  max-width: unset;
 }
 
 #fullscreen {
