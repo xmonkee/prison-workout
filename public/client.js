@@ -5,6 +5,16 @@ const prevBtn = document.getElementById("prev");
 const resetBtn = document.getElementById("reset");
 const seedInp = document.getElementById("seed");
 const setBtn = document.getElementById("setSeed");
+const bgVid = document.getElementById("bgVid");
+
+videoSources = [
+  "https://media.giphy.com/media/SLT2FV5gwSgnu/giphy.mp4",
+  "https://media.giphy.com/media/2ENsfmFBINLig/giphy.mp4",
+  "https://media.giphy.com/media/27c7PAUIqaaryrpxxP/giphy.mp4",
+  "https://media.giphy.com/media/3o6ZsYzuLyRfSGX4f6/giphy.mp4",
+  "https://media.giphy.com/media/3mJyfDFH0BqgbdghWJ/giphy.mp4",
+  "https://media.giphy.com/media/26wkQkJja60v1J84w/giphy.mp4"
+];
 
 class Moves {
   constructor() {
@@ -15,7 +25,7 @@ class Moves {
     prevBtn.onclick = () => this.prev();
     resetBtn.onclick = () => this.reset();
     setBtn.onclick = () => {
-      this.setSeed(seedInp.value);
+      this.setSeed(parseInt(seedInp.value));
       this.render();
     };
   }
@@ -33,7 +43,6 @@ class Moves {
   }
 
   setSeed(seed) {
-    seed = parseInt(seed);
     seedInp.value = seed;
     this.rndGen = mulberry32(seed);
 
@@ -72,6 +81,11 @@ function mulberry32(a) {
 function inRange(a, min, max) {
   return Math.floor(a * (max - min + 1)) + min;
 }
+
+setInterval(function() {
+  const randVidIdx = inRange(Math.random(), 0, videoSources.length - 1);
+  bgVid.setAttribute("src", videoSources[randVidIdx]);
+}, 20000);
 
 const moves = new Moves();
 moves.render();
