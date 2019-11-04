@@ -5,16 +5,22 @@ const prevBtn = document.getElementById("prev");
 const resetBtn = document.getElementById("reset");
 const seedInp = document.getElementById("seed");
 const setBtn = document.getElementById("setSeed");
-const bgVid = document.getElementById("bgVid");
+const vidBg = document.getElementById("vidbg");
 
-videoSources = [
-  "https://media.giphy.com/media/SLT2FV5gwSgnu/giphy.mp4",
-  "https://media.giphy.com/media/2ENsfmFBINLig/giphy.mp4",
-  "https://media.giphy.com/media/27c7PAUIqaaryrpxxP/giphy.mp4",
-  "https://media.giphy.com/media/3o6ZsYzuLyRfSGX4f6/giphy.mp4",
-  "https://media.giphy.com/media/3mJyfDFH0BqgbdghWJ/giphy.mp4",
-  "https://media.giphy.com/media/26wkQkJja60v1J84w/giphy.mp4"
-];
+const gifs = {
+  pushes: "/pushes.gif",
+  pulls: "/pulls.gif",
+  squats: "/squats.gif",
+  raises: "/raises.gif"
+};
+
+const imgEls = {};
+for (let move of Object.keys(gifs)) {
+  const image = new Image();
+  image.src = gifs[move];
+  image.className = "bgVid";
+  imgEls[move] = image;
+}
 
 class Moves {
   constructor() {
@@ -49,7 +55,7 @@ class Moves {
     this.moves = [];
     for (let num = 1; num <= 10; num++) {
       for (let move of ["pushes", "pulls", "raises", "squats"]) {
-        this.moves.push(`${num} ${move}`);
+        this.moves.push([num, move]);
       }
     }
     for (let i = 0; i < this.moves.length - 1; i++) {
@@ -65,7 +71,10 @@ class Moves {
 
   render() {
     countDiv.innerHTML = `${this.current + 1}/${this.count}`;
-    currentDiv.innerHTML = this.moves[this.current];
+    const [rep, move] = this.moves[this.current];
+    currentDiv.innerHTML = `${rep} ${move}`;
+    vidBg.innerHTML = "";
+    vidBg.appendChild(imgEls[move]);
   }
 }
 
@@ -116,11 +125,6 @@ document.addEventListener("fullscreenchange", function() {
     bgVid.setAttribute("width", "auto");
   }
 });
-
-setInterval(function() {
-  const randVidIdx = inRange(Math.random(), 0, videoSources.length - 1);
-  bgVid.setAttribute("src", videoSources[randVidIdx]);
-}, 20000);
 
 const moves = new Moves();
 moves.render();

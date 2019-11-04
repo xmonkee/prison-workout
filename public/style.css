@@ -113,17 +113,17 @@ button:active {
   justify-content: space-between;
 }
 
-.vidbg {
+#vidbg {
   position: absolute;
-  height: 100%;
   width: 100%;
-  overflow: hidden;
+  top: 50%;
   z-index: -1;
-  max-width: unset;
 }
 
-#bgVid {
-  height: 100%;
+.bgVid {
+  width: 100%;
+  transform: translateY(-50%);
+  margin: auto;
   background-size: cover;
   max-width: unset;
 }
