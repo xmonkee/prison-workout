@@ -106,6 +106,7 @@ function openFullscreen(elem) {
     /* IE/Edge */
     elem.msRequestFullscreen();
   }
+  screen.orientation.lock("portrait");
 }
 
 var mainContainer = document.getElementsByClassName("container")[0];
